@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR-Tube</title>
+
+<style>
+  .active{
+    background-color: red;
+    color: white;
+  }
+</style>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="w-11/12 mx-auto flex justify-between border-b-2 py-5 border-[#17171720]">
+      <div class="logo">
+        <img class="w-[120px]" src="./assets/Logo.png" alt="">
+      </div>
+
+
+      <label class="input">
+        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </g>
+        </svg>
+        <input id="search-input" type="search" placeholder="Search" />
+        <kbd class="kbd kbd-sm">⌘</kbd>
+        <kbd class="kbd kbd-sm">K</kbd>
+        </label>
+      <div class="blog"><button class="btn bg-[#FF1F3D] text-white">Sort By View</button></div>
+    </nav>
+  </header>
+
+  <nav id="category-container" class=" flex py-5 justify-center gap-5">
+    <div>
+      <button id="btn-all" onclick="loadVideos()" class="btn btn-sm hover:text-white hover:bg-[#FF1F3D]">All</button>
+    </div>
+  </nav>
+
+  <section class="w-11/12 mx-auto grid grid-cols-4 gap-5" id="video-container">
+
+    <div class=" py-20 col-span-full flex flex-col justify-center items-center text-center">
+      <img class="w-[120px]" src="./assets/Icon.png" alt="">
+      <h2 class="text-2xl font-bold">Oops!! Sorry,There is no content here</h2>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Open the modal using ID.showModal() method -->
+  
+  <dialog id="video_details" class="modal">
+    <div class="modal-box">
+      <div id="video-details-container">
+
+      </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="./script/index.js"></script>
+
+</body>
+
+</html>
