@@ -120,7 +120,7 @@ const displayVideos = videos => {
           </div>
         </div>
         <div class="intro">
-          <h2 class="text-sm font-semibold">Midnight Serenade</h2>
+          <h2 class="text-sm font-semibold">${video.title}</h2>
           <p class="text-sm text-gray-400 flex gap-2">
           ${video.authors[0].profile_name} 
           ${
