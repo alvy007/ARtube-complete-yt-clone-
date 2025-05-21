@@ -1,3 +1,15 @@
+
+
+const showLoader = () => { 
+  
+  document.getElementById('loader').classList.remove('hidden');
+  document.getElementById('video-container').classList.add('hidden');
+}
+
+const hideLoader = () => {
+  document.getElementById('loader').classList.add('hidden');
+  document.getElementById('video-container').classList.remove('hidden');
+};
 function removeActiveClass() {
   // Get all buttons with the class 'active'
   const activeButtons = document.getElementsByClassName('active');
@@ -18,6 +30,8 @@ function loadCategories() {
 }
 
 function loadVideos(searchText = '') {
+
+  showLoader();
   fetch(
     `https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`
   )
@@ -29,7 +43,9 @@ function loadVideos(searchText = '') {
     });
 }
 
-function loadCategoryVideo(id) {
+function loadCategoryVideo(id)
+{
+  showLoader();
   const url = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
   console.log(url);
   fetch(url)
@@ -92,14 +108,14 @@ const displayVideos = videos => {
   videoContainer.innerHTML = '';
 
   if (videos.length === 0) {
-    const noVideo = document.createElement('div');
-    noVideo.innerHTML = `
+    
+    videoContainer.innerHTML = `
     <div class=" py-20 col-span-full flex flex-col justify-center items-center text-center">
       <img class="w-[120px]" src="./assets/Icon.png" alt="">
       <h2 class="text-2xl font-bold">Oops!! Sorry,There is no content here</h2>
     </div>
     `;
-    videoContainer.appendChild(noVideo);
+    hideLoader();
     return;
   }
   // Loop through the videos and create a card for each one
@@ -147,6 +163,7 @@ const displayVideos = videos => {
     `;
     videoContainer.appendChild(videoCard);
   });
+  hideLoader();
 };
 
 
